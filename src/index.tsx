@@ -1,13 +1,19 @@
-import React from "react";
-import App from './App';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'
-import './App.scss';
+import React from "react"
+import App from "./App"
+import { createRoot } from "react-dom/client"
+import { legacy_createStore as createStore } from "redux"
+import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router-dom"
+import Reducer from "./store"
+import "./App.scss"
+const store = createStore(Reducer)
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+const container = document.getElementById("root") as HTMLElement
+const root = createRoot(container)
 root.render(
   <BrowserRouter>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
-);
+)

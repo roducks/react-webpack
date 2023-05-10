@@ -1,5 +1,5 @@
 {
-  "complilerOptions": {
+  "compilerOptions": {
     "noEmit": true,
     "allowUnreachableCode":  false,
     "allowUnusedLabels": false,
@@ -7,8 +7,8 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitThis": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noUnsuedLocals": true,
-    "noUnsedParameters": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "alwaysStrict": true,
