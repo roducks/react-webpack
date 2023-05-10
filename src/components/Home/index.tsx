@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { people } from "src/api"
+import { people } from "../../api"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash, faFlag } from "@fortawesome/free-solid-svg-icons"
 import "./style.scss"
 
 interface List {
@@ -7,7 +9,11 @@ interface List {
   name: string
 }
 
-const Home = () => {
+interface DefaultProps {
+  title: string
+}
+
+const Home = ({ title }: DefaultProps) => {
   const [list, setList] = useState<List[]>([])
 
   useEffect(() => {
@@ -22,11 +28,22 @@ const Home = () => {
   }, [])
 
   return (
-    <ul>
-      {list.map((item: List) => (
-        <li key={item.id}>{item.name}</li>
-      ))}
-    </ul>
+    <>
+      <h2>{title}</h2>
+      <ul>
+        <li>
+          <FontAwesomeIcon icon={faFlag} />
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faTrash} />
+        </li>
+      </ul>
+      <ul>
+        {list.map((item: List) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </>
   )
 }
 
