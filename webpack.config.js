@@ -14,6 +14,7 @@ module.exports = (env) => {
       filename: "bundle.[fullhash].js",
       publicPath: "/",
     },
+    devtool: "source-map",
     plugins: [
       new HtmlWebpackPlugin({
         template: "./public/index.html",
