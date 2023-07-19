@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const Dotenv = require("dotenv-webpack")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 const path = require("path")
 
 module.exports = (env) => {
@@ -23,6 +24,9 @@ module.exports = (env) => {
       }),
       new Dotenv({
         path: `./.env${envFile}`,
+      }),
+      new CopyWebpackPlugin({
+        patterns: [{ from: "./src/assets", to: "assets" }],
       }),
     ],
     resolve: {
@@ -50,8 +54,8 @@ module.exports = (env) => {
           ],
         },
         {
-          test: /\.(eot|ttf|woff|woff2)$/,
-          loader: "file-loader",
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          type: "asset/resource",
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
