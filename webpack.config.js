@@ -68,7 +68,7 @@ module.exports = (env) => {
             {
               loader: "image-webpack-loader",
               options: {
-                disabled: true, // disable optimization on development
+                disable: true, // disable optimization on development
                 mozjpg: {
                   progressive: true,
                   quality: 80,

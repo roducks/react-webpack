@@ -4,8 +4,9 @@ import Home from ".."
 
 describe("My Test", () => {
   test("Home Test", () => {
-    render(<Home title="Rod" />)
+    const wrapper = render(<Home title="Rod" />)
 
     expect(screen.getByText("Rod")).toBeTruthy()
+    expect(wrapper.container.querySelectorAll("li")).toHaveLength(2)
   })
 })
