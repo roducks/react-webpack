@@ -1,4 +1,4 @@
-const initialValues = {
+export const State = {
   user: {
     id: 0,
     user_name: "",
@@ -9,5 +9,3 @@ const initialValues = {
   tabIndex: 0,
   card: [],
 }
-
-export default initialValues

@@ -10,7 +10,7 @@ module.exports = (env) => {
   return {
     entry: "./src/index.tsx",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "build"),
       filename: "bundle.[fullhash].js",
       publicPath: "/",
     },
@@ -25,6 +25,7 @@ module.exports = (env) => {
       }),
       new Dotenv({
         path: `./.env${envFile}`,
+        systemvars: true,
       }),
       new CopyWebpackPlugin({
         patterns: [{ from: "./src/assets", to: "assets" }],
@@ -60,7 +61,6 @@ module.exports = (env) => {
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
-          exclude: /node_modules/,
           use: [
             {
               loader: "file-loader",

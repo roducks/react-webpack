@@ -7,6 +7,7 @@
     "tscheck": "tsc",
     "test": "jest",
     "start": "webpack serve --mode development",
+    "local": "webpack serve --mode development --env ENV_FILE=local",
     "build": "webpack --mode production",
     "api": "json-server -p3001 --watch src/api/data.json",
     "lint": "eslint .",

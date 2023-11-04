@@ -1,24 +1,6 @@
-import initialValues from "./initialValues"
+import { State } from "./state"
 
-type ReducerAction =
-  | {
-      type: "user"
-      payload: User
-    }
-  | {
-      type: "loader"
-      payload: boolean
-    }
-  | {
-      type: "tabIndex"
-      payload: number
-    }
-  | {
-      type: "cards"
-      payload: Cards
-    }
-
-const Reducer = (state = initialValues, action: ReducerAction) => {
+export const StoreReducer = (state = State, action: StoreActions) => {
   switch (action.type) {
     case "user":
       return { ...state, user: action.payload }
@@ -32,5 +14,3 @@ const Reducer = (state = initialValues, action: ReducerAction) => {
       return state
   }
 }
-
-export default Reducer

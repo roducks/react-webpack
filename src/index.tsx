@@ -1,12 +1,12 @@
 import React from "react"
-import App from "./App"
+import { App } from "./app/App"
 import { createRoot } from "react-dom/client"
 import { legacy_createStore as createStore } from "redux"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
-import Reducer from "./store"
-import "./App.scss"
-const store = createStore(Reducer)
+import { StoreReducer } from "./store"
+import "./app/App.scss"
+const store = createStore(StoreReducer)
 
 const container = document.getElementById("root") as HTMLElement
 const root = createRoot(container)

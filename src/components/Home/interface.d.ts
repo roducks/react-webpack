@@ -1,0 +1,3 @@
+interface HomeProps {
+  title?: string
+}

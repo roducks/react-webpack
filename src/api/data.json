@@ -1,16 +1,19 @@
 {
-  "people": [
+  "people": 
     {
-      "id": 1,
-      "name": "Rod"
-    },
-    {
-      "id": 2,
-      "name": "Bruno"
-    },
-    {
-      "id": 3,
-      "name": "Lucy"
+      "people": [
+        {
+          "id": 1,
+          "name": "Rod"
+        },
+        {
+          "id": 2,
+          "name": "Bruno"
+        },
+        {
+          "id": 3,
+          "name": "Lucy"
+        }
+      ]
     }
-  ]
 }

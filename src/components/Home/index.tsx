@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from "react"
-import { people } from "../../api"
+import React, { useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faFlag } from "@fortawesome/free-solid-svg-icons"
+import { usePeople } from "./hooks/usePeople"
 import "./style.scss"
 
-interface List {
-  id: number
-  name: string
-}
-
-interface DefaultProps {
-  title: string
-}
-
-const Home = ({ title }: DefaultProps) => {
-  const [list, setList] = useState<List[]>([])
+export const Home = ({ title = "" }: HomeProps) => {
+  const { state, getData } = usePeople()
 
   useEffect(() => {
-    people
-      .get()
-      .then((response) => {
-        setList(response)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [])
+    getData()
+  }, [getData])
 
   return (
     <>
@@ -38,13 +22,15 @@ const Home = ({ title }: DefaultProps) => {
           <FontAwesomeIcon icon={faTrash} />
         </li>
       </ul>
-      <ul>
-        {list.map((item: List) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
+      {state.isLoaded ? (
+        <ul>
+          {state.people.map((item: People) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      ) : (
+        "Loading ..."
+      )}
     </>
   )
 }
-
-export default Home
