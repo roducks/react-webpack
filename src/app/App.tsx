@@ -1,13 +1,14 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { Home } from "../views/Home"
-import AboutMe from "../views/AboutMe"
+import { About } from "../views/About"
+import { Routing } from "./routing"
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<AboutMe />} />
+      <Route path={Routing.Home} element={<Home />} />
+      <Route path={Routing.About} element={<About />} />
     </Routes>
   )
 }
