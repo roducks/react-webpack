@@ -14,6 +14,27 @@ export const usePeople = () => {
     dispatch({ type: "setName", payload })
   }, [])
 
+  const setSort = useCallback((payload: SortColumn<People>) => {
+    dispatch({ type: "setSort", payload })
+  }, [])
+
+  const onSort = useCallback(
+    (payload: SortColumn<People>) => {
+      const clone = [...state.people]
+      if (payload.direction === "ASC") {
+        clone.sort((a, b) => (a[payload.column] > b[payload.column] ? 1 : -1))
+      } else if (payload.direction === "DES") {
+        clone.sort((a, b) => (a[payload.column] > b[payload.column] ? -1 : 1))
+      }
+      setData(clone)
+      setSort({
+        column: payload.column,
+        direction: payload.direction,
+      })
+    },
+    [setData, setSort, state.people]
+  )
+
   const getData = useCallback(() => {
     People.get()
       .then((response) => {
@@ -28,6 +49,8 @@ export const usePeople = () => {
     state,
     setData,
     setName,
+    setSort,
     getData,
+    onSort,
   }
 }

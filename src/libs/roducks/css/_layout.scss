@@ -1,0 +1,18 @@
+.roducks {
+  &__container {
+    width: 1240px;
+    margin: 0 auto;
+  }
+
+  &__row {
+    display: flex;
+
+    &--items--center {
+      align-items: center;
+    }
+
+    &--spaced {
+      justify-content: space-between;
+    }
+  }
+}

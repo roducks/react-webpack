@@ -1,11 +1,10 @@
 export const State = {
   user: {
     id: 0,
-    user_name: "",
-    first_name: "",
-    last_name: "",
+    picture: "https://avatars.githubusercontent.com/u/4094007?v=4",
+    username: "rodrigo.cervantes",
+    firstname: "Rod",
+    lastname: "Cervantes",
   },
   loader: false,
-  tabIndex: 0,
-  card: [],
 }

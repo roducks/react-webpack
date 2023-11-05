@@ -7,6 +7,12 @@ export const peopleReducer = (state: PeopleState, action: PeopleActions) => {
         people: action.payload,
       }
     }
+    case "setSort": {
+      return {
+        ...state,
+        sort: action.payload,
+      }
+    }
     case "setName": {
       const people = state.people.map((person) => {
         if (person.id === action.payload.id) {

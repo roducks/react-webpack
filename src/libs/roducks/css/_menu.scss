@@ -1,0 +1,39 @@
+.roducks {
+  &__menu {
+    position: relative;
+
+    &__container {
+      background-color: #fff;
+      border: solid 1px #999;
+      box-shadow: 0 0 2px #999;
+      position: absolute;
+      right: 0;
+      top: 75px;
+      min-width: 250px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style: none;
+
+          &.separator {
+            border-bottom: solid 1px #999;
+          }
+
+          a {
+            display: block;
+            padding: 0.5rem;
+            color: #12b2b2;
+            text-decoration: none;
+
+            &:hover {
+              background-color: #f8f8f8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

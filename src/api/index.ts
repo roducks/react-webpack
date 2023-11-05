@@ -21,7 +21,7 @@ API.interceptors.response.use(
         setTimeout(() => {
           resolve(response)
           reject(new Error("API Request failure!"))
-        }, 1000)
+        }, 500)
       })
     } else {
       return response

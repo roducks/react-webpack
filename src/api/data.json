@@ -4,15 +4,18 @@
       "people": [
         {
           "id": 1,
-          "name": "Rod"
+          "name": "Rod",
+          "icon": "flag"
         },
         {
           "id": 2,
-          "name": "Bruno"
+          "name": "Bruno",
+          "icon": "trash"
         },
         {
           "id": 3,
-          "name": "Lucy"
+          "name": "Lucy",
+          "icon": "chevron-up"
         }
       ]
     }

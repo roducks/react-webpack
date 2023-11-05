@@ -1,0 +1,17 @@
+@media only screen and (max-width: 1240px) {
+  .roducks {
+    &__container {
+      width: 100%;
+
+      &--white {
+        margin: 0 1rem;
+      }
+    }
+
+    &__navbar {
+      &__container {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
