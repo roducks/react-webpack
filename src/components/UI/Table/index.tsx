@@ -52,19 +52,27 @@ export function Table<T>({ columns, data, sort, onSort }: TableProps<T>) {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {columns.map((column, columnIndex) => (
-              <td key={`${column.field.toString()}-${columnIndex}`}>
-                <>
-                  {typeof column.render === "function"
-                    ? column.render(row)
-                    : row[column.field]}
-                </>
-              </td>
+        {data.length > 0 ? (
+          <>
+            {data.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {columns.map((column, columnIndex) => (
+                  <td key={`${column.field.toString()}-${columnIndex}`}>
+                    <>
+                      {typeof column.render === "function"
+                        ? column.render(row)
+                        : row[column.field]}
+                    </>
+                  </td>
+                ))}
+              </tr>
             ))}
+          </>
+        ) : (
+          <tr>
+            <td colSpan={columns.length}>There are no rows</td>
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   )

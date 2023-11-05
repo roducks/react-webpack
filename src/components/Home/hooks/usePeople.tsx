@@ -2,6 +2,7 @@ import { useReducer, useCallback } from "react"
 import { peopleReducer } from "./reducer"
 import { PEOPLE_STATE } from "./data"
 import { People } from "src/api/People"
+import { sort } from "src/utils/functions"
 
 export const usePeople = () => {
   const [state, dispatch] = useReducer(peopleReducer, PEOPLE_STATE)
@@ -20,13 +21,8 @@ export const usePeople = () => {
 
   const onSort = useCallback(
     (payload: SortColumn<People>) => {
-      const clone = [...state.people]
-      if (payload.direction === "ASC") {
-        clone.sort((a, b) => (a[payload.column] > b[payload.column] ? 1 : -1))
-      } else if (payload.direction === "DES") {
-        clone.sort((a, b) => (a[payload.column] > b[payload.column] ? -1 : 1))
-      }
-      setData(clone)
+      const sorted = sort<People>(state.people, payload)
+      setData(sorted)
       setSort({
         column: payload.column,
         direction: payload.direction,
@@ -34,6 +30,10 @@ export const usePeople = () => {
     },
     [setData, setSort, state.people]
   )
+
+  const unsetPeople = useCallback((payload: People) => {
+    dispatch({ type: "unsetPeople", payload })
+  }, [])
 
   const getData = useCallback(() => {
     People.get()
@@ -52,5 +52,6 @@ export const usePeople = () => {
     setSort,
     getData,
     onSort,
+    unsetPeople,
   }
 }

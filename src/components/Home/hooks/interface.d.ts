@@ -11,6 +11,10 @@ type PeopleActions =
       type: "setName"
       payload: PeopleNamePayload
     }
+  | {
+      type: "unsetPeople"
+      payload: People
+    }
 
 interface PeopleState {
   people: People[]

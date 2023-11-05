@@ -26,6 +26,15 @@ export const peopleReducer = (state: PeopleState, action: PeopleActions) => {
         people,
       }
     }
+    case "unsetPeople": {
+      const people = state.people.filter(
+        (person) => person.id !== action.payload.id
+      )
+      return {
+        ...state,
+        people,
+      }
+    }
     default: {
       return { ...state }
     }

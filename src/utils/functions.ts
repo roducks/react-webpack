@@ -5,3 +5,13 @@ export const onDev = () => {
 export const apiLocal = () => {
   return process.env["API_LOCAL"] === "on"
 }
+
+export function sort<T>(data: T[], sort: SortColumn<T>) {
+  if (sort.direction === "ASC") {
+    data.sort((a, b) => (a[sort.column] > b[sort.column] ? 1 : -1))
+  } else if (sort.direction === "DES") {
+    data.sort((a, b) => (a[sort.column] > b[sort.column] ? -1 : 1))
+  }
+
+  return data
+}
