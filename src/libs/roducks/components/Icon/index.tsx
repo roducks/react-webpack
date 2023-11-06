@@ -7,6 +7,10 @@ import {
   faChevronDown,
   faCaretUp,
   faCaretDown,
+  faRemove,
+  faTriangleExclamation,
+  faCircleExclamation,
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons"
 
 export const Icon = ({ name }: IconProps) => {
@@ -16,7 +20,6 @@ export const Icon = ({ name }: IconProps) => {
     case "trash":
       icon = faTrash
       break
-
     case "flag":
       icon = faFlag
       break
@@ -31,6 +34,18 @@ export const Icon = ({ name }: IconProps) => {
       break
     case "caret-down":
       icon = faCaretDown
+      break
+    case "remove":
+      icon = faRemove
+      break
+    case "warning":
+      icon = faTriangleExclamation
+      break
+    case "error":
+      icon = faCircleExclamation
+      break
+    case "info":
+      icon = faCircleInfo
       break
   }
 

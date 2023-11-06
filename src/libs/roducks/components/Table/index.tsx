@@ -1,5 +1,6 @@
 import React from "react"
 import { Icon } from "../Icon"
+import { Alert } from "../Alert"
 import "./styles.scss"
 
 export function Table<T>({ columns, data, sort, onSort }: TableProps<T>) {
@@ -27,7 +28,7 @@ export function Table<T>({ columns, data, sort, onSort }: TableProps<T>) {
             <th key={`${column.title}-${columnIndex}`}>
               <div className="roducks__row roducks__row--spaced">
                 <span>{column.title}</span>
-                {column.sort && (
+                {column.sort && data.length > 0 && (
                   <>
                     {sort.column === column.field ? (
                       <span>
@@ -70,7 +71,9 @@ export function Table<T>({ columns, data, sort, onSort }: TableProps<T>) {
           </>
         ) : (
           <tr>
-            <td colSpan={columns.length}>There are no rows</td>
+            <td colSpan={columns.length}>
+              <Alert type="info">There are no rows</Alert>
+            </td>
           </tr>
         )}
       </tbody>

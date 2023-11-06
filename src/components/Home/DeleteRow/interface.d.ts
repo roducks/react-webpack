@@ -1,0 +1,3 @@
+interface DeleteRowProps {
+  onDelete: () => void
+}

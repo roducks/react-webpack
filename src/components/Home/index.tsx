@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
-import { Table } from "../UI/Table"
+import { Table } from "../../libs/roducks/components/Table"
 import { usePeople } from "./hooks/usePeople"
-import { Icon } from "../UI/Icon"
+import { Icon } from "../../libs/roducks/components/Icon"
 import { DeleteRow } from "./DeleteRow"
 
 export const Home = ({ title = "Home" }: HomeProps) => {

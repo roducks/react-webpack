@@ -15,4 +15,10 @@ body {
       padding: 2rem;
     }
   }
+
+  &__theme {
+    &--color-red {
+      color: $colorRed;
+    }
+  }
 }

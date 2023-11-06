@@ -1,0 +1,52 @@
+@import "../../css/variables";
+
+.roducks {
+  &__modal {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000, $alpha: 0.7);
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    &--margin {
+      width: $modalWidth;
+    }
+
+    &--box {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    &--header {
+      h3 {
+        margin-bottom: 0;
+      }
+
+      a {
+        font-size: 24px;
+        color: #12b2b2;
+
+        &:hover {
+          color: #999;
+        }
+      }
+
+      margin-bottom: 1rem;
+    }
+
+    &--footer {
+      margin-top: 1rem;
+    }
+  }
+}

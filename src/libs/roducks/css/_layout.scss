@@ -7,8 +7,12 @@
   &__row {
     display: flex;
 
-    &--items--center {
+    &--aligned-center {
       align-items: center;
+    }
+
+    &--aligned-right {
+      justify-content: flex-end;
     }
 
     &--spaced {

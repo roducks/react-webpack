@@ -1,0 +1,139 @@
+.roducks {
+  &__button {
+    border: none;
+    background-color: #dcdcdc;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    font-size: 16px;
+    position: relative;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.3s;
+
+    &[disabled] {
+      background: #999;
+    }
+
+    &--rounded {
+      border-radius: 8px;
+    }
+
+    &--large {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    &--default {
+      :focus {
+        animation-name: roducks__button--default-focus;
+      }
+    }
+
+    &--blue {
+      background-color: #2196f3;
+      color: #fff;
+
+      &:focus {
+        animation-name: roducks__button--blue-focus;
+      }
+    }
+
+    &--outline {
+      background-color: #fff;
+      border: solid 2px #2196f3;
+      color: #2196f3;
+
+      &:focus {
+        animation-name: roducks__button--blue-focus;
+      }
+    }
+
+    &--green {
+      background-color: #8bc34a;
+      color: #fff;
+
+      &:focus {
+        animation-name: roducks__button--green-focus;
+      }
+    }
+
+    &--black {
+      background-color: #000;
+      color: #fff;
+
+      &:focus {
+        animation-name: roducks__button--black-focus;
+      }
+    }
+
+    &--red {
+      background-color: #d43c31;
+      color: #fff;
+
+      &:focus {
+        animation-name: roducks__button--red-focus;
+      }
+    }
+
+    &--roducks {
+      background-color: #12b2b2;
+      color: #fff;
+    }
+  }
+
+  &__buttons {
+    button {
+      &:nth-child(1) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+@keyframes roducks__button--default-focus {
+  0% {
+    outline: solid 6px rgba(204, 204, 204, 0.6);
+  }
+  100% {
+    outline: solid 12px rgba(204, 204, 204, 0);
+  }
+}
+
+@keyframes roducks__button--blue-focus {
+  0% {
+    outline: solid 6px rgba(33, 150, 243, 0.4);
+  }
+  100% {
+    outline: solid 12px rgba(33, 150, 243, 0);
+  }
+}
+
+@keyframes roducks__button--green-focus {
+  0% {
+    outline: solid 6px rgba(139, 195, 74, 0.4);
+  }
+  100% {
+    outline: solid 12px rgba(139, 195, 74, 0);
+  }
+}
+
+@keyframes roducks__button--red-focus {
+  0% {
+    outline: solid 6px rgba(239, 91, 80, 0.4);
+  }
+  100% {
+    outline: solid 12px rgba(239, 91, 80, 0);
+  }
+}
+
+@keyframes roducks__button--black-focus {
+  0% {
+    outline: solid 6px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    outline: solid 12px rgba(0, 0, 0, 0);
+  }
+}
