@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { Icon } from "src/components/../libs/roducks/components/Icon"
+import { Logo } from "src/libs/roducks/components/Login"
 import { Menu } from "../Menu"
 
 export const Navbar = () => {
@@ -14,7 +15,7 @@ export const Navbar = () => {
           <div className="roducks__navbar__inner roducks__container roducks__row roducks__row--aligned-center roducks__row--spaced">
             <div className="roducks__navbar__logo">
               <a href="/" className="roducks__navbar__item">
-                <img src="https://github.com/roducks/framework/raw/main/public/assets/images/roducks_logo_home.png" />
+                <Logo />
               </a>
             </div>
             <div className="roducks__navbar__user roducks__navbar__item">

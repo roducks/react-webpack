@@ -1,0 +1,62 @@
+.roducks {
+  &__field {
+    position: relative;
+    margin-bottom: 1rem;
+
+    input,
+    textarea,
+    select,
+    &--fake {
+      background-color: #f7fbfd;
+      border: solid 1px #12b2b0;
+      padding: 10px;
+      border-radius: 4px;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: sans-serif;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-duration: 0.2s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      animation-name: roducks__field--focus;
+    }
+
+    &--error input,
+    &--error textarea,
+    &--error select,
+    &--error div.roducks__field--hidden {
+      background-color: #f9eeed;
+      border: solid 1px #c00;
+    }
+
+    &--error input:focus,
+    &--error textarea:focus,
+    &--error select:focus {
+      animation-name: roducks__field--focus-error;
+    }
+  }
+}
+
+@keyframes roducks__field--focus {
+  0% {
+    outline: solid 1px #ccc;
+  }
+  100% {
+    outline: solid 4px rgba(33, 150, 243, 0.4);
+  }
+}
+
+@keyframes roducks__field--focus-error {
+  0% {
+    outline: solid 1px #ccc;
+  }
+  100% {
+    outline: solid 4px rgba(204, 0, 0, 0.2);
+  }
+}

@@ -2,6 +2,7 @@ import React from "react"
 import "./styles.scss"
 
 export const Button = ({
+  type = "button",
   label,
   color = "default",
   rounded = false,
@@ -26,7 +27,7 @@ export const Button = ({
   }
 
   return (
-    <button className={getStyle()} onClick={onClick}>
+    <button type={type} className={getStyle()} onClick={onClick}>
       {label}
     </button>
   )

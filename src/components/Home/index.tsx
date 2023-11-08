@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { Table } from "../../libs/roducks/components/Table"
 import { usePeople } from "./hooks/usePeople"
-import { Icon } from "../../libs/roducks/components/Icon"
 import { DeleteRow } from "./DeleteRow"
 
 export const Home = ({ title = "Home" }: HomeProps) => {
@@ -17,14 +16,6 @@ export const Home = ({ title = "Home" }: HomeProps) => {
       title: "Name",
       field: "name",
       sort: true,
-    },
-    {
-      title: "Icon",
-      field: "icon",
-      sort: false,
-      render: (row) => {
-        return <Icon name={row.icon} />
-      },
     },
     {
       title: "",
