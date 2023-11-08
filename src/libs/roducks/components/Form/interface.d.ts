@@ -1,4 +1,4 @@
-type FormDataType = Record<string, string>
+type FormDataType = Record<string, StringNull>
 type FormErrorType = Record<string, boolean>
 
 interface FormElementsType {
@@ -7,7 +7,7 @@ interface FormElementsType {
 
 interface FormArgsProps {
   form: FormDataType
-  setForm: (name: string, value: string, isInvalid?: boolean) => void
+  setForm: (name: string, value: StringNull, isInvalid?: boolean) => void
   errors: FormErrorType
   setErrors: (name: string, value: string) => void
   validate: boolean

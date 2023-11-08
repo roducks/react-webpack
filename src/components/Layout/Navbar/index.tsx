@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { Icon } from "src/components/../libs/roducks/components/Icon"
-import { Logo } from "src/libs/roducks/components/Login"
+import { Logo } from "src/libs/roducks/components/Logo"
 import { Menu } from "../Menu"
 
 export const Navbar = () => {

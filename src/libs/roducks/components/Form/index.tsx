@@ -5,16 +5,16 @@ export const Form = ({ data, render }: FormProps) => {
   const [errors, setErrors] = useState<FormErrorType>({})
   const formRef = useRef(null)
 
-  const updateErrors = (name: string, value: string) => {
+  const updateErrors = (name: string, value: StringNull) => {
     setErrors((prevState: FormErrorType) => {
       return {
         ...prevState,
-        [name]: value === "",
+        [name]: ["", null].includes(value),
       }
     })
   }
 
-  const updateForm = (name: string, value: string, isInvalid?: boolean) => {
+  const updateForm = (name: string, value: StringNull, isInvalid?: boolean) => {
     setForm((prevState: FormDataType) => {
       return {
         ...prevState,
@@ -37,7 +37,7 @@ export const Form = ({ data, render }: FormProps) => {
       for (const input of [...elements]) {
         const i = input as HTMLInputElement
         if (
-          ["text"].includes(i.type) &&
+          ["text", "password", "textarea"].includes(i.type) &&
           i.getAttribute("data-required") === "true"
         ) {
           errs = {
