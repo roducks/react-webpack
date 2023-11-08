@@ -10,16 +10,18 @@ interface FormArgsProps {
   setForm: (name: string, value: StringNull, isInvalid?: boolean) => void
   errors: FormErrorType
   setErrors: (name: string, value: string) => void
-  validate: boolean
+  submit: CallableFunction
+  valid: boolean
 }
 
 interface FormProps {
   data: FormDataType
+  onSubmit: (valid: boolean, form: FormDataType) => void
   render: ({
     form,
     setForm,
     errors,
     setErrors,
-    validate,
+    submit,
   }: FormArgsProps) => React.ReactNode
 }

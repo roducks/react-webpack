@@ -19,7 +19,10 @@ export const Login = () => {
               password: "abc1373",
               comments: null,
             }}
-            render={({ form, setForm, errors, validate }) => {
+            onSubmit={(valid, form) => {
+              console.log("FORM VALID", valid, form)
+            }}
+            render={({ form, setForm, errors, submit }) => {
               return (
                 <div>
                   <EmailField
@@ -59,7 +62,7 @@ export const Login = () => {
                     rounded={true}
                     large={true}
                     onClick={() => {
-                      console.log(validate, errors, form)
+                      submit()
                     }}
                   />
                 </div>

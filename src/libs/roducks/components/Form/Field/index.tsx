@@ -13,6 +13,12 @@ export const Field = ({
 }: FieldTypeProps) => {
   const [inputValue, setInputValue] = useState<StringNull>(null)
 
+  const updateValue = (v: string) => {
+    const input = v === "" ? null : v
+    setInputValue(input)
+    onChange(input)
+  }
+
   useEffect(() => {
     setInputValue(value)
   }, [value])
@@ -22,29 +28,31 @@ export const Field = ({
       {label !== "" && <label htmlFor={name}>{label}</label>}
       {type === "textarea" ? (
         <textarea
+          id={name}
           name={name}
           value={inputValue ?? ""}
           placeholder={placeholder}
           data-required={required ? "true" : "false"}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-            const v = e.target.value
-            const input = v === "" ? null : v
-            setInputValue(input)
-            onChange(input)
+            updateValue(e.target.value)
+          }}
+          onBlur={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            updateValue(e.target.value)
           }}
         />
       ) : (
         <input
+          id={name}
           type={type}
           name={name}
           value={inputValue ?? ""}
           placeholder={placeholder}
           data-required={required ? "true" : "false"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            const v = e.target.value
-            const input = v === "" ? null : v
-            setInputValue(input)
-            onChange(input)
+            updateValue(e.target.value)
+          }}
+          onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
+            updateValue(e.target.value)
           }}
         />
       )}
