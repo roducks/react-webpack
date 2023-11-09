@@ -8,19 +8,31 @@ import { TextareaField } from "src/libs/roducks/components/Form/TextareaField"
 import "./styles.scss"
 
 export const Login = () => {
+  const [data, setData] = useState<FormDataType>({
+    email: "rod@roducks.org",
+    password: null,
+    comments: null,
+  })
+
   return (
     <div className="roducks__login">
       <div className="roducks__login--container">
         <Logo />
         <div className="roducks__container--white">
           <Form
-            data={{
-              email: "rod@roducks.org",
-              password: null,
-              comments: null,
-            }}
-            onSubmit={(valid, form) => {
-              console.log("FORM VALID", valid, form)
+            data={data}
+            onSubmit={(valid, form, onSuccess) => {
+              setTimeout(() => {
+                console.log("FORM VALID", valid, form)
+                if (valid) {
+                  setData({
+                    email: null,
+                    password: null,
+                    comments: null,
+                  })
+                  onSuccess()
+                }
+              }, 1000)
             }}
             alert={{
               success: "Good",

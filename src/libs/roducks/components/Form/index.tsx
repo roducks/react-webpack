@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react"
 import { Alert } from "../Alert"
 
 export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
+  const [success, setSuccess] = useState(false)
   const [displayAlert, setDisplayAlert] = useState(false)
   const [submit, setSubmit] = useState<boolean>(false)
   const [validation, setValidation] = useState<boolean>(false)
@@ -11,12 +12,15 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
   const formRef = useRef(null)
 
   const updateErrors = (name: string, value: StringNull) => {
+    const v = ["", null].includes(value)
     setErrors((prevState: FormErrorType) => {
       return {
         ...prevState,
-        [name]: ["", null].includes(value),
+        [name]: v,
       }
     })
+    setDisplayAlert(v)
+    setSuccess(false)
   }
 
   const updateForm = (name: string, value: StringNull, isInvalid?: boolean) => {
@@ -28,11 +32,14 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
     })
     const v = isInvalid === true ? "" : value
     updateErrors(name, v)
-    setDisplayAlert(false)
   }
 
   const triggerSubmit = () => {
     setSubmit(true)
+  }
+
+  const onSuccess = () => {
+    setSuccess(true)
   }
 
   useEffect(() => {
@@ -80,8 +87,7 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
       const formValid = Object.values(errors).every((e) => !e)
       setValid(formValid)
       setValidation(false)
-      setDisplayAlert(true)
-      onSubmit(formValid, form)
+      onSubmit(formValid, form, onSuccess)
     }
   }, [validation, errors, onSubmit, form])
 
@@ -116,11 +122,9 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
       }}
     >
       <>
-        {displayAlert && (
-          <Alert type={valid ? "success" : "error"}>
-            {valid ? alert.success : alert.error}
-          </Alert>
-        )}
+        {displayAlert && <Alert type={"error"}>{alert.error}</Alert>}
+        {success && <Alert type="success">{alert.success}</Alert>}
+
         {render({
           form,
           setForm: updateForm,

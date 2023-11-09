@@ -20,7 +20,11 @@ interface FormProps {
     success: string
     error: string
   }
-  onSubmit: (valid: boolean, form: FormDataType) => void
+  onSubmit: (
+    valid: boolean,
+    form: FormDataType,
+    onSuccess: CallableFunction
+  ) => void
   render: ({
     form,
     setForm,
