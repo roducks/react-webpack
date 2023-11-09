@@ -17,7 +17,11 @@ export const Login = () => {
   return (
     <div className="roducks__login">
       <div className="roducks__login--container">
-        <Logo />
+        <div className="roducks__login--logo">
+          <div className="roducks__login--logo-img">
+            <Logo />
+          </div>
+        </div>
         <div className="roducks__container--white">
           <Form
             data={data}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useCallback } from "react"
 import { Alert } from "../Alert"
 
 export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
@@ -11,7 +11,7 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
   const [errors, setErrors] = useState<FormErrorType>({})
   const formRef = useRef(null)
 
-  const updateErrors = (name: string, value: StringNull) => {
+  const updateErrors = useCallback((name: string, value: StringNull) => {
     const v = ["", null].includes(value)
     setErrors((prevState: FormErrorType) => {
       return {
@@ -19,9 +19,14 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
         [name]: v,
       }
     })
-    setDisplayAlert(v)
+    const emptyFields = getEmptyFields()
+    if (emptyFields.length > 0) {
+      setDisplayAlert(true)
+    } else {
+      setDisplayAlert(v)
+    }
     setSuccess(false)
-  }
+  }, [])
 
   const updateForm = (name: string, value: StringNull, isInvalid?: boolean) => {
     setForm((prevState: FormDataType) => {
@@ -42,28 +47,32 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
     setSuccess(true)
   }
 
-  useEffect(() => {
-    if (submit) {
-      const elements = formRef.current
+  const getEmptyFields = () => {
+    const elements = formRef.current
 
-      const fields = []
-      if (elements !== null && elements !== undefined) {
-        for (const input of [...elements]) {
-          const i = input as HTMLInputElement
-          if (
-            ["text", "password", "textarea"].includes(i.type) &&
-            i.getAttribute("data-required") === "true"
-          ) {
-            fields.push({
-              el: i,
-              name: i.name,
-              value: i.value === "" ? null : i.value,
-            })
-          }
+    const fields = []
+    if (elements !== null && elements !== undefined) {
+      for (const input of [...elements]) {
+        const i = input as HTMLInputElement
+        if (
+          ["text", "password", "textarea"].includes(i.type) &&
+          i.getAttribute("data-required") === "true"
+        ) {
+          fields.push({
+            el: i,
+            name: i.name,
+            value: i.value === "" ? null : i.value,
+          })
         }
       }
+    }
 
-      const emptyFields = fields.filter((f) => f.value === null)
+    return fields.filter((f) => f.value === null)
+  }
+
+  useEffect(() => {
+    if (submit) {
+      const emptyFields = getEmptyFields()
 
       if (emptyFields.length > 0) {
         const emptyField = emptyFields[0]
@@ -80,7 +89,7 @@ export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
       setSubmit(false)
       setValidation(true)
     }
-  }, [submit])
+  }, [submit, updateErrors])
 
   useEffect(() => {
     if (validation) {
