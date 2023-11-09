@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Button } from "src/libs/roducks/components/Button"
 import { Logo } from "src/libs/roducks/components/Logo"
 import { Form } from "src/libs/roducks/components/Form"
@@ -16,11 +16,15 @@ export const Login = () => {
           <Form
             data={{
               email: "rod@roducks.org",
-              password: "abc1373",
+              password: null,
               comments: null,
             }}
             onSubmit={(valid, form) => {
               console.log("FORM VALID", valid, form)
+            }}
+            alert={{
+              success: "Good",
+              error: "Bad",
             }}
             render={({ form, setForm, errors, submit }) => {
               return (

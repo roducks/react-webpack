@@ -16,6 +16,10 @@ interface FormArgsProps {
 
 interface FormProps {
   data: FormDataType
+  alert: {
+    success: string
+    error: string
+  }
   onSubmit: (valid: boolean, form: FormDataType) => void
   render: ({
     form,

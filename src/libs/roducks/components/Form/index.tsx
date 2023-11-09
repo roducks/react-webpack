@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
+import { Alert } from "../Alert"
 
-export const Form = ({ data, onSubmit, render }: FormProps) => {
+export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
+  const [displayAlert, setDisplayAlert] = useState(false)
   const [submit, setSubmit] = useState<boolean>(false)
   const [validation, setValidation] = useState<boolean>(false)
   const [valid, setValid] = useState<boolean>(false)
@@ -26,6 +28,7 @@ export const Form = ({ data, onSubmit, render }: FormProps) => {
     })
     const v = isInvalid === true ? "" : value
     updateErrors(name, v)
+    setDisplayAlert(false)
   }
 
   const triggerSubmit = () => {
@@ -58,7 +61,9 @@ export const Form = ({ data, onSubmit, render }: FormProps) => {
       if (emptyFields.length > 0) {
         const emptyField = emptyFields[0]
 
-        updateErrors(emptyField.name, emptyField.value)
+        emptyFields.forEach((field) => {
+          updateErrors(field.name, field.value)
+        })
 
         setTimeout(() => {
           emptyField.el?.focus()
@@ -75,6 +80,7 @@ export const Form = ({ data, onSubmit, render }: FormProps) => {
       const formValid = Object.values(errors).every((e) => !e)
       setValid(formValid)
       setValidation(false)
+      setDisplayAlert(true)
       onSubmit(formValid, form)
     }
   }, [validation, errors, onSubmit, form])
@@ -109,14 +115,21 @@ export const Form = ({ data, onSubmit, render }: FormProps) => {
         e.preventDefault()
       }}
     >
-      {render({
-        form,
-        setForm: updateForm,
-        errors,
-        setErrors: updateErrors,
-        submit: triggerSubmit,
-        valid,
-      })}
+      <>
+        {displayAlert && (
+          <Alert type={valid ? "success" : "error"}>
+            {valid ? alert.success : alert.error}
+          </Alert>
+        )}
+        {render({
+          form,
+          setForm: updateForm,
+          errors,
+          setErrors: updateErrors,
+          submit: triggerSubmit,
+          valid,
+        })}
+      </>
     </form>
   )
 }

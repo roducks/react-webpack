@@ -5,21 +5,29 @@
     margin-bottom: 1rem;
     padding: 0.5rem;
 
+    &-success {
+      border-left: solid 6px #8bc34a;
+    }
+
     &-warning {
-      border-left: solid 4px #ffc100;
+      border-left: solid 6px #ffc100;
     }
 
     &-error {
-      border-left: solid 4px #c00;
+      border-left: solid 6px #c00;
     }
 
     &-info {
-      border-left: solid 4px #0782c9;
+      border-left: solid 6px #0782c9;
     }
 
     &--icon {
-      font-size: 34px;
+      font-size: 36px;
       margin-right: 0.5rem;
+
+      &-success {
+        color: #8bc34a;
+      }
 
       &-warning {
         color: #ffc100;

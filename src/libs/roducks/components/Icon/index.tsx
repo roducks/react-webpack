@@ -8,6 +8,7 @@ import {
   faCaretUp,
   faCaretDown,
   faRemove,
+  faCircleCheck,
   faTriangleExclamation,
   faCircleExclamation,
   faCircleInfo,
@@ -37,6 +38,9 @@ export const Icon = ({ name }: IconProps) => {
       break
     case "remove":
       icon = faRemove
+      break
+    case "success":
+      icon = faCircleCheck
       break
     case "warning":
       icon = faTriangleExclamation
