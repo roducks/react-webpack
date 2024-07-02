@@ -1,7 +1,15 @@
 import React, { useEffect, useState, useRef, useCallback } from "react"
 import { Alert } from "../Alert"
 
-export const Form = ({ data, alert, onSubmit, render }: FormProps) => {
+export const Form = ({
+  data,
+  alert = {
+    success: "Data was submitted succesfully!",
+    error: "Form has errors",
+  },
+  onSubmit,
+  render,
+}: FormProps) => {
   const [success, setSuccess] = useState(false)
   const [displayAlert, setDisplayAlert] = useState(false)
   const [submit, setSubmit] = useState<boolean>(false)

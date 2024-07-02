@@ -1,0 +1,26 @@
+.roducks__card {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+
+  &--shadow {
+    box-shadow: 0 0 6px #888;
+  }
+
+  &--inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+  }
+
+  &--header {
+    width: 100%;
+  }
+
+  &--footer {
+    align-content: flex-end;
+    width: 100%;
+  }
+}

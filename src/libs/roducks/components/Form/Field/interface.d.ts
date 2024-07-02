@@ -2,7 +2,7 @@ type FieldType = string | number | null
 
 interface FieldBaseProps {
   name: string
-  value: StringNull
+  value: StringNullBool
   label?: string
   placeholder?: string
   required?: boolean

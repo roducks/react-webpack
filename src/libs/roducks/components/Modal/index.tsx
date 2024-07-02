@@ -16,7 +16,7 @@ export const Modal = ({
           <div className="roducks__modal--container">
             <div className="roducks__modal--margin">
               <div className="roducks__modal--box">
-                <div className="roducks__row roducks__row--aligned-center roducks__row--spaced roducks__modal--header">
+                <div className="roducks__row roducks__row--aligned-center roducks__row--expanded roducks__modal--header">
                   <h3>{title}</h3>
                   {dissmisable && (
                     <a

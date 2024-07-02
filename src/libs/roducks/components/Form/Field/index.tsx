@@ -11,7 +11,7 @@ export const Field = ({
   required = false,
   onChange,
 }: FieldTypeProps) => {
-  const [inputValue, setInputValue] = useState<StringNull>(null)
+  const [inputValue, setInputValue] = useState<StringNullBool>(null)
 
   const updateValue = (v: string) => {
     const input = v === "" ? null : v
@@ -30,7 +30,7 @@ export const Field = ({
         <textarea
           id={name}
           name={name}
-          value={inputValue ?? ""}
+          value={typeof inputValue === "string" ? inputValue : ""}
           placeholder={placeholder}
           data-required={required ? "true" : "false"}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -45,7 +45,7 @@ export const Field = ({
           id={name}
           type={type}
           name={name}
-          value={inputValue ?? ""}
+          value={typeof inputValue === "string" ? inputValue : ""}
           placeholder={placeholder}
           data-required={required ? "true" : "false"}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

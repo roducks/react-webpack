@@ -1,6 +1,7 @@
 {
-  "people": 
+  "v1": [
     {
+      "id": "people",
       "people": [
         {
           "id": 1,
@@ -19,4 +20,27 @@
         }
       ]
     }
+  ],
+  "v2": [
+    {
+      "id": "people",
+      "people": [
+        {
+          "id": 1,
+          "name": "Rod!!!!!!",
+          "icon": "flag"
+        },
+        {
+          "id": 2,
+          "name": "Bruno",
+          "icon": "trash"
+        },
+        {
+          "id": 3,
+          "name": "Lucy",
+          "icon": "chevron-up"
+        }
+      ]
+    }
+  ]
 }

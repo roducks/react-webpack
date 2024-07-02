@@ -1,1 +1,0 @@
-type StringNull = string | null

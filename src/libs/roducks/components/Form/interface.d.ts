@@ -1,4 +1,4 @@
-type FormDataType = Record<string, StringNull>
+type FormDataType = Record<string, StringNullBool>
 type FormErrorType = Record<string, boolean>
 
 interface FormElementsType {
@@ -16,7 +16,7 @@ interface FormArgsProps {
 
 interface FormProps {
   data: FormDataType
-  alert: {
+  alert?: {
     success: string
     error: string
   }

@@ -4,5 +4,6 @@ interface ButtonProps {
   color?: string
   rounded?: boolean
   large?: boolean
+  className?: StringNull
   onClick: () => void
 }

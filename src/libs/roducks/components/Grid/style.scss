@@ -1,0 +1,150 @@
+.roducks {
+  &__grid {
+    display: flex;
+
+    &--columns {
+      width: 100%;
+      &-aligned-center {
+        align-items: center;
+      }
+
+      &-right {
+        justify-content: flex-end;
+      }
+
+      &-expanded {
+        justify-content: space-between;
+      }
+
+      &-centered {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      &-2 {
+        > div {
+          width: 50%;
+        }
+      }
+
+      &-3 {
+        > div {
+          width: 33.3333%;
+        }
+      }
+
+      &-4 {
+        > div {
+          width: 25%;
+        }
+      }
+
+      &-5 {
+        > div {
+          width: 20%;
+        }
+      }
+
+      &-6 {
+        > div {
+          width: 16.6666%;
+        }
+      }
+
+      &-8 {
+        > div {
+          width: 12.5%;
+        }
+      }
+    }
+
+    &--column {
+      display: flex;
+
+      &-p90 {
+        width: 90%;
+      }
+
+      &-p80 {
+        width: 80%;
+      }
+
+      &-p70 {
+        width: 80%;
+      }
+
+      &-p60 {
+        width: 60%;
+      }
+
+      &-p40 {
+        width: 40%;
+      }
+
+      &-p30 {
+        width: 20%;
+      }
+
+      &-p20 {
+        width: 20%;
+      }
+
+      &-p10 {
+        width: 10%;
+      }
+    }
+
+    &--wrap {
+      flex-wrap: wrap;
+
+      > .roducks__grid--column {
+        flex-grow: 1;
+      }
+    }
+
+    &--wrap-reverse {
+      flex-wrap: wrap-reverse;
+
+      > .roducks__grid--column {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .roducks {
+    &__grid {
+      &--responsive {
+        display: block;
+
+        &.roducks__grid--columns {
+          &-2,
+          &-3,
+          &-4,
+          &-5,
+          &-6,
+          &-8 {
+            > div {
+              width: 100%;
+            }
+          }
+        }
+
+        .roducks__grid--column {
+          &-p90,
+          &-p80,
+          &-p70,
+          &-p60,
+          &-p40,
+          &-p30,
+          &-p20,
+          &-p10 {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

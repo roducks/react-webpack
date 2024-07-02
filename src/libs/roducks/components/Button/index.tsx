@@ -7,6 +7,7 @@ export const Button = ({
   color = "default",
   rounded = false,
   large = false,
+  className = null,
   onClick,
 }: ButtonProps) => {
   const getStyle = () => {
@@ -21,6 +22,10 @@ export const Button = ({
 
     if (large) {
       style.push("roducks__button--large")
+    }
+
+    if (className !== null) {
+      style.push(className)
     }
 
     return style.join(" ")

@@ -81,6 +81,10 @@
     &--roducks {
       background-color: #12b2b2;
       color: #fff;
+
+      &:focus {
+        animation-name: roducks__button--roducks-focus;
+      }
     }
   }
 
@@ -135,5 +139,24 @@
   }
   100% {
     outline: solid 12px rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes roducks__button--roducks-focus {
+  0% {
+    outline: solid 6px rgba($color: #12b2b2, $alpha: 0.4);
+  }
+  100% {
+    outline: solid 12px rgba($color: #12b2b2, $alpha: 0);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .roducks {
+    &__button {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
   }
 }

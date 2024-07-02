@@ -1,10 +1,10 @@
 import { request } from ".."
-import { getEndpoint } from "./endpoints"
-import { formatter } from "./formatter"
+import { peopleEndpoint } from "./endpoints"
+import { peopleFormatter } from "./formatters"
 
 export const People = {
   get: async () =>
-    await request
-      .get<PeopleResponse>(getEndpoint())
-      .then((data) => formatter(data.people)),
+    await request()
+      .get<PeopleResponse>(peopleEndpoint())
+      .then((data) => peopleFormatter(data.people)),
 }

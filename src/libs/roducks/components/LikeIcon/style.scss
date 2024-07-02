@@ -1,0 +1,102 @@
+.roducks__like {
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    path {
+      fill: none;
+      stroke-width: 2rem;
+      stroke: #888;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-duration: 0.3s;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  span {
+    margin-right: 0.5rem;
+  }
+}
+
+.roducks__heart {
+  svg {
+    &:hover {
+      path {
+        fill: red;
+        stroke: red;
+      }
+    }
+
+    &:active {
+      path {
+        animation-name: roducks__icon--red-focus;
+      }
+    }
+  }
+
+  &--active {
+    svg {
+      path {
+        fill: red;
+        stroke: red;
+      }
+    }
+  }
+}
+
+.roducks__thumb {
+  svg {
+    &:hover {
+      path {
+        fill: #2196f3;
+        stroke: #2196f3;
+        stroke-width: 1rem;
+      }
+    }
+
+    &:active {
+      path {
+        animation-name: roducks__icon--blue-focus;
+      }
+    }
+  }
+
+  &--active {
+    svg {
+      path {
+        fill: #2196f3;
+        stroke: #2196f3;
+        stroke-width: 1rem;
+      }
+    }
+  }
+}
+
+@keyframes roducks__icon--red-focus {
+  from {
+    stroke-width: 2rem;
+    stroke: rgba(239, 91, 80, 0.4);
+  }
+  to {
+    stroke-width: 32rem;
+    stroke: rgba(239, 91, 80, 0);
+  }
+}
+
+@keyframes roducks__icon--blue-focus {
+  from {
+    stroke-width: 2rem;
+    stroke: rgba(80, 120, 239, 0.4);
+  }
+  to {
+    stroke-width: 32rem;
+    stroke: rgba(80, 120, 239, 0);
+  }
+}

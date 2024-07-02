@@ -26,7 +26,7 @@ export function Table<T>({ columns, data, sort, onSort }: TableProps<T>) {
         <tr>
           {columns.map((column, columnIndex) => (
             <th key={`${column.title}-${columnIndex}`}>
-              <div className="roducks__row roducks__row--spaced">
+              <div className="roducks__row roducks__row--expanded">
                 <span>{column.title}</span>
                 {column.sort && data.length > 1 && (
                   <>

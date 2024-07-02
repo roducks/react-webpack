@@ -1,0 +1,40 @@
+@import "../../../css/variables";
+
+.roducks {
+  &__switch {
+    display: inline-flex;
+    width: 70px;
+    height: 40px;
+    border-radius: 40px;
+    margin-bottom: 1rem;
+    position: relative;
+    cursor: pointer;
+
+    &--on {
+      background-color: #12b275;
+    }
+
+    &--off {
+      background-color: #ccc;
+    }
+
+    &--toggle {
+      position: absolute;
+      top: 2px;
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      background-color: #fff;
+      border-radius: 100%;
+      box-shadow: 0 0 4px #999;
+
+      &-on {
+        left: 32px;
+      }
+
+      &-off {
+        left: 2px;
+      }
+    }
+  }
+}

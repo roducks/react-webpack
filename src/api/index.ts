@@ -41,7 +41,7 @@ API.interceptors.response.use(
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data
 
-export const request = {
+export const http = {
   get: async <T>(url: string, params?: unknown) =>
     await API.get<T>(url, params ?? {}).then(responseBody),
   post: async <T>(url: string, body: unknown) =>
@@ -50,4 +50,20 @@ export const request = {
     await API.put<T>(url, body).then(responseBody),
   delete: async <T>(url: string, params?: unknown) =>
     await API.delete<T>(url, params ?? {}).then(responseBody),
+}
+
+export const request = (v?: string) => {
+  const defaultVersion = v ?? process.env["API_VERSION"] ?? null
+  const version = defaultVersion ?? `/${defaultVersion}`
+
+  return {
+    get: async <T>(url: string, params?: unknown) =>
+      http.get<T>(`${version}${url}`, params),
+    post: async <T>(url: string, params?: unknown) =>
+      http.post<T>(`${version}${url}`, params),
+    put: async <T>(url: string, params?: unknown) =>
+      http.put<T>(`${version}${url}`, params),
+    delete: async <T>(url: string, params?: unknown) =>
+      http.delete<T>(`${version}${url}`, params),
+  }
 }

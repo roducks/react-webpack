@@ -1,4 +1,4 @@
-export const formatter = (data: People[]) => {
+export const peopleFormatter = (data: People[]) => {
   return data.map((item) => {
     // item.icon = "flag"
 

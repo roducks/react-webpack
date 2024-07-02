@@ -12,6 +12,8 @@ import {
   faTriangleExclamation,
   faCircleExclamation,
   faCircleInfo,
+  faHeart,
+  faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons"
 
 export const Icon = ({ name }: IconProps) => {
@@ -50,6 +52,12 @@ export const Icon = ({ name }: IconProps) => {
       break
     case "info":
       icon = faCircleInfo
+      break
+    case "heart":
+      icon = faHeart
+      break
+    case "thumb":
+      icon = faThumbsUp
       break
   }
 

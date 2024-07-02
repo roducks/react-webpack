@@ -5,6 +5,7 @@ import { Form } from "src/libs/roducks/components/Form"
 import { EmailField } from "src/libs/roducks/components/Form/EmailField"
 import { PasswordField } from "src/libs/roducks/components/Form/PasswordField"
 import { TextareaField } from "src/libs/roducks/components/Form/TextareaField"
+import { Switch } from "src/libs/roducks/components/Form/Switch"
 import "./styles.scss"
 
 export const Login = () => {
@@ -12,6 +13,7 @@ export const Login = () => {
     email: "rod@roducks.org",
     password: null,
     comments: null,
+    privacy: true,
   })
 
   return (
@@ -33,14 +35,11 @@ export const Login = () => {
                     email: null,
                     password: null,
                     comments: null,
+                    privacy: false,
                   })
                   onSuccess()
                 }
               }, 1000)
-            }}
-            alert={{
-              success: "Good",
-              error: "Bad",
             }}
             render={({ form, setForm, errors, submit }) => {
               return (
@@ -74,6 +73,14 @@ export const Login = () => {
                     error={errors["comments"]}
                     onChange={(value) => {
                       setForm("comments", value)
+                    }}
+                  />
+                  <Switch
+                    value={form["privacy"]}
+                    required={true}
+                    error={errors["privacy"]}
+                    onChange={(value) => {
+                      setForm("privacy", value)
                     }}
                   />
                   <Button

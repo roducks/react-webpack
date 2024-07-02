@@ -1,15 +1,12 @@
 import React from "react"
-import { Main } from "src/components/Layout/Main"
+// import { Main } from "src/components/Layout/Main"
+import { Container } from "src/libs/roducks/components/Container"
 import { Home as HomeComponent } from "../components/Home"
 
 export const Home = () => {
   return (
-    <Main>
-      <div className="roducks__container">
-        <div className="roducks__container--white">
-          <HomeComponent />
-        </div>
-      </div>
-    </Main>
+    <Container>
+      <HomeComponent />
+    </Container>
   )
 }
