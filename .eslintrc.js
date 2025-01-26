@@ -1,8 +1,15 @@
+const RULES = {
+  OFF: "off",
+  WARN: "warn",
+  ERROR: "error",
+}
+
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true,
+    // jest: true,
   },
   settings: {
     react: {
@@ -13,6 +20,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    // "react-app/jest",
     "standard-with-typescript",
     "plugin:@typescript-eslint/recommended",
     "prettier",
@@ -25,13 +33,15 @@ module.exports = {
     },
     project: "./tsconfig.eslint.json",
     tsconfigRootDir: __dirname,
-    emcaVersion: "latest",
+    ecmaVersion: "latest",
     sourceType: "module",
   },
   plugins: ["react", "react-hooks", "@typescript-eslint"],
   rules: {
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
+    "@typescript-eslint/explicit-function-return-type": RULES.OFF,
+    "react/jsx-uses-react": RULES.ERROR,
+    "react/jsx-uses-vars": RULES.ERROR,
+    "react-hooks/rules-of-hooks": RULES.ERROR,
+    "react-hooks/exhaustive-deps": RULES.WARN,
   },
 }

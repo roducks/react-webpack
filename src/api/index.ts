@@ -1,8 +1,9 @@
 import axios, { type AxiosResponse } from "axios"
+import { store } from "src/store"
 import { onDev } from "src/utils/functions"
 
 const API = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: process.env["API_HOST"] ?? "http://localhost:3001",
 })
 
 API.interceptors.request.use(
@@ -32,10 +33,9 @@ API.interceptors.response.use(
       error.response !== undefined &&
       [401, 403, 404].includes(error.response.status)
     ) {
-      return false
-    } else {
-      return await Promise.reject(error)
+      store.dispatch({ type: "session" })
     }
+    return await Promise.reject(error)
   }
 )
 
@@ -54,16 +54,16 @@ export const http = {
 
 export const request = (v?: string) => {
   const defaultVersion = v ?? process.env["API_VERSION"] ?? null
-  const version = defaultVersion ?? `/${defaultVersion}`
+  const version = defaultVersion ?? `/${defaultVersion ?? ""}`
 
   return {
     get: async <T>(url: string, params?: unknown) =>
-      http.get<T>(`${version}${url}`, params),
+      await http.get<T>(`${version}${url}`, params),
     post: async <T>(url: string, params?: unknown) =>
-      http.post<T>(`${version}${url}`, params),
+      await http.post<T>(`${version}${url}`, params),
     put: async <T>(url: string, params?: unknown) =>
-      http.put<T>(`${version}${url}`, params),
+      await http.put<T>(`${version}${url}`, params),
     delete: async <T>(url: string, params?: unknown) =>
-      http.delete<T>(`${version}${url}`, params),
+      await http.delete<T>(`${version}${url}`, params),
   }
 }

@@ -34,6 +34,9 @@ module.exports = (env) => {
     resolve: {
       modules: [__dirname, "src", "node_modules"],
       extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+      alias: {
+        "@roducks": "src/libs/roducks/components",
+      },
     },
     module: {
       rules: [
@@ -49,10 +52,18 @@ module.exports = (env) => {
         {
           test: /\.(s*)css$/,
           use: [
-            // MiniCssExtractPlugin.loader,
-            "style-loader",
-            "css-loader",
-            "sass-loader",
+            {
+              loader: "style-loader",
+            },
+            {
+              loader: "css-loader",
+              options: {
+                url: false,
+              },
+            },
+            {
+              loader: "sass-loader",
+            },
           ],
         },
         {

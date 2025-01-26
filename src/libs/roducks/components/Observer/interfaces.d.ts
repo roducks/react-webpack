@@ -1,0 +1,3 @@
+interface ObserverProps {
+  callback: () => void
+}

@@ -2,6 +2,6 @@ interface ModalProps {
   title?: string
   dissmisable?: boolean
   display: boolean
-  onClose: () => void
+  onClose?: () => void
   children: React.ReactNode
 }

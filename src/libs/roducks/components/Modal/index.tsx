@@ -6,7 +6,7 @@ export const Modal = ({
   title = "",
   dissmisable = true,
   display,
-  onClose,
+  onClose = undefined,
   children,
 }: ModalProps) => {
   return (
@@ -23,7 +23,7 @@ export const Modal = ({
                       href="#void"
                       onClick={(e) => {
                         e.preventDefault()
-                        onClose()
+                        onClose?.()
                       }}
                     >
                       <Icon name="remove" />

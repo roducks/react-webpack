@@ -1,4 +1,7 @@
-export const State = {
+export const State: ReduxState = {
+  loader: false,
+  timeout: false,
+  session: false,
   user: {
     id: 0,
     picture: "https://avatars.githubusercontent.com/u/4094007?v=4",
@@ -6,5 +9,4 @@ export const State = {
     firstname: "Rod",
     lastname: "Cervantes",
   },
-  loader: false,
 }

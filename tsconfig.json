@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "allowUnreachableCode":  false,
+    "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
@@ -11,13 +11,16 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "alwaysStrict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
     "baseUrl": "./",
+    "paths": {
+      "@roducks/*": ["./src/libs/roducks/components/*"],
+      "@roducks": ["./src/libs/roducks/components"]
+    },
     "module": "ES2022",
     "moduleResolution": "node",
     "target": "ES2022",
@@ -27,6 +30,6 @@
     "esModuleInterop": true,
     "isolatedModules": false
   },
-  "include": ["src/**/**/*"],
+  "include": ["src/**/**/*", "src/libs/roducks/components/*.tsx"],
   "exclude": ["node_modules"]
 }

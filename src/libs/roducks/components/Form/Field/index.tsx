@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import InputMask from "react-input-mask"
 import "./styles.scss"
 
 export const Field = ({
@@ -41,20 +42,41 @@ export const Field = ({
           }}
         />
       ) : (
-        <input
-          id={name}
-          type={type}
-          name={name}
-          value={typeof inputValue === "string" ? inputValue : ""}
-          placeholder={placeholder}
-          data-required={required ? "true" : "false"}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            updateValue(e.target.value)
-          }}
-          onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
-            updateValue(e.target.value)
-          }}
-        />
+        <>
+          {type === "date" ? (
+            <InputMask
+              id={name}
+              name={name}
+              mask="99/99/9999"
+              maskChar="_"
+              alwaysShowMask
+              value={typeof inputValue === "string" ? inputValue : ""}
+              placeholder={placeholder}
+              data-required={required ? "true" : "false"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                updateValue(e.target.value)
+              }}
+              onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
+                updateValue(e.target.value)
+              }}
+            />
+          ) : (
+            <input
+              id={name}
+              type={type}
+              name={name}
+              value={typeof inputValue === "string" ? inputValue : ""}
+              placeholder={placeholder}
+              data-required={required ? "true" : "false"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                updateValue(e.target.value)
+              }}
+              onBlur={(e: React.ChangeEvent<HTMLInputElement>) => {
+                updateValue(e.target.value)
+              }}
+            />
+          )}
+        </>
       )}
     </div>
   )

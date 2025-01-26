@@ -1,0 +1,25 @@
+.roducks {
+  &__tabs {
+    &--links {
+      display: flex;
+
+      width: 100%;
+      background-color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #000;
+        flex-grow: 1;
+        padding: 1rem;
+      }
+
+      &-active {
+        border-bottom: solid 4px blue;
+      }
+
+      &-unactive {
+        border-bottom: solid 4px #ccc;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.roducks {
+  &__calendar {
+    &--title {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      font-weight: 800;
+    }
+
+    &--nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--table {
+      th {
+        padding: 1rem;
+      }
+
+      th,
+      td {
+        text-align: center;
+      }
+
+      td {
+        a {
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
+          padding: 1rem;
+          border: solid 2px transparent;
+        }
+
+        a.active {
+          color: #000;
+
+          &:hover {
+            border: solid 2px #0782c9;
+          }
+        }
+
+        a.unactive {
+          color: #999;
+          cursor: not-allowed;
+        }
+
+        &.today {
+          a {
+            background-color: #d7f8fc;
+            font-weight: 600;
+            color: #0782c9;
+          }
+        }
+
+        &.selected {
+          a {
+            background-color: #0782c9;
+            border: solid 2px #0782c9;
+            color: #fff;
+          }
+        }
+
+        &.shadow {
+          a {
+            background-color: #c7e2f2;
+            border: solid 2px #c7e2f2;
+          }
+        }
+      }
+    }
+  }
+}
