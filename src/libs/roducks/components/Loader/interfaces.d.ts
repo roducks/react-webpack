@@ -1,0 +1,3 @@
+interface LoaderProps {
+  display: boolean
+}

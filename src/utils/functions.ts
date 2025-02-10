@@ -7,9 +7,9 @@ export const apiLocal = () => {
 }
 
 export function sort<T>(data: T[], sort: SortColumn<T>) {
-  if (sort.direction === "ASC") {
+  if (sort.direction?.toUpperCase() === "ASC") {
     data.sort((a, b) => (a[sort.column] > b[sort.column] ? 1 : -1))
-  } else if (sort.direction === "DES") {
+  } else if (sort.direction?.toUpperCase() === "DES") {
     data.sort((a, b) => (a[sort.column] > b[sort.column] ? -1 : 1))
   }
 

@@ -5,7 +5,7 @@ import { Logo } from "src/libs/roducks/components/Logo"
 import { Menu } from "../Menu"
 
 export const Navbar = () => {
-  const user = useSelector((state: User) => state.user)
+  const user = useSelector((state: UserState) => state.user)
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
 
   return (
@@ -15,20 +15,18 @@ export const Navbar = () => {
           <div className="roducks__navbar__inner roducks__container roducks__row roducks__row--aligned-center roducks__row--spaced">
             <div className="roducks__navbar__logo">
               <a href="/" className="roducks__navbar__item">
-                <Logo />
+                <Logo />{" "}
               </a>
-            </div>
-            <div className="roducks__navbar__user roducks__navbar__item">
               <a
-                href="#void"
+                href="#"
                 onClick={(e) => {
                   e.preventDefault()
                   setDisplayMenu((prevState) => !prevState)
                 }}
               >
-                <img src={user.picture ?? ""} />
-                <span>{user.username}</span>
-                <Icon name={`chevron-${displayMenu ? "up" : "down"}`}></Icon>
+                <span>
+                  {user.firstname} {user.lastname}
+                </span>
               </a>
             </div>
           </div>

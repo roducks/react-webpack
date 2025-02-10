@@ -1,0 +1,3 @@
+interface AccessProps {
+  view: string
+}

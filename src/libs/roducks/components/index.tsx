@@ -5,6 +5,7 @@ import { DatePickerRange } from "./DatePickerRange"
 import { Timeout } from "./Timeout"
 import { Modal } from "./Modal"
 import { SessionTimeout } from "./SessionTimeout"
+import { Loader } from "./Loader"
 
 export {
   Alert,
@@ -14,4 +15,5 @@ export {
   Timeout,
   Modal,
   SessionTimeout,
+  Loader,
 }

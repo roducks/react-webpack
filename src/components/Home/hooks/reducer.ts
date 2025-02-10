@@ -16,7 +16,10 @@ export const peopleReducer = (state: PeopleState, action: PeopleActions) => {
     case "setName": {
       const people = state.people.map((person) => {
         if (person.id === action.payload.id) {
-          person.name = action.payload.name
+          return {
+            ...person,
+            name: action.payload.name,
+          }
         }
 
         return person
@@ -36,7 +39,7 @@ export const peopleReducer = (state: PeopleState, action: PeopleActions) => {
       }
     }
     default: {
-      return { ...state }
+      return state
     }
   }
 }

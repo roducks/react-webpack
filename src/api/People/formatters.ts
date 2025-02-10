@@ -1,7 +1,10 @@
-export const peopleFormatter = (data: People[]) => {
-  return data.map((item) => {
-    // item.icon = "flag"
-
-    return item
-  })
+export const formatters = {
+  getPeople: (data: People[]) => {
+    return data.map((item) => {
+      return {
+        ...item,
+        icon: "flag",
+      }
+    })
+  },
 }

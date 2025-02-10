@@ -1,3 +1,3 @@
-export const peopleEndpoint = () => {
-  return process.env["API_PEOPLE_ENDPOINT"] ?? ""
+export const endpoints = {
+  getPeople: process.env["API_PEOPLE_ENDPOINT"] ?? "",
 }

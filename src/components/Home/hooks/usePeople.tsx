@@ -41,7 +41,7 @@ export const usePeople = () => {
         setData(response)
       })
       .catch((error) => {
-        console.log(error)
+        console.error(error)
       })
   }, [setData])
 

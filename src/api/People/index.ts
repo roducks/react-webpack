@@ -1,10 +1,10 @@
-import { request } from ".."
-import { peopleEndpoint } from "./endpoints"
-import { peopleFormatter } from "./formatters"
+import { api } from ".."
+import { endpoints } from "./endpoints"
+import { formatters } from "./formatters"
 
 export const People = {
   get: async () =>
-    await request()
-      .get<PeopleResponse>(peopleEndpoint())
-      .then((data) => peopleFormatter(data.people)),
+    await api()
+      .get<PeopleResponse>(endpoints.getPeople)
+      .then((data) => formatters.getPeople(data.people)),
 }

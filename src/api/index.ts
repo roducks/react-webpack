@@ -31,7 +31,7 @@ API.interceptors.response.use(
   async (error) => {
     if (
       error.response !== undefined &&
-      [401, 403, 404].includes(error.response.status)
+      [401, 403, 500, 503].includes(error.response.status)
     ) {
       store.dispatch({ type: "session" })
     }
@@ -40,6 +40,11 @@ API.interceptors.response.use(
 )
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data
+
+export const request = {
+  post: async <T>(url: string, body: unknown) =>
+    await axios.post<T>(url, body).then(responseBody),
+}
 
 export const http = {
   get: async <T>(url: string, params?: unknown) =>
@@ -52,7 +57,7 @@ export const http = {
     await API.delete<T>(url, params ?? {}).then(responseBody),
 }
 
-export const request = (v?: string) => {
+export const api = (v?: string) => {
   const defaultVersion = v ?? process.env["API_VERSION"] ?? null
   const version = defaultVersion ?? `/${defaultVersion ?? ""}`
 
